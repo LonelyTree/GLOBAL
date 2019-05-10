@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "es6-tween": "^5.5.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-globe": "^3.0.2",
+    "react-scripts": "3.0.1",
+    "three": "^0.104.0",
+    "three-orbitcontrols": "^2.102.1",
+    "three.interaction": "^0.2.2",
+    "tippy.js": "^4.3.1",
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
