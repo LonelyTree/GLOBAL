@@ -3,12 +3,19 @@ import ReactGlobal from 'react-globe'
 import VirtualSky from '../virtualSky/virtualSky'
 
 class Global extends Component {
+    state={
+        skyVisible: false
+    }
+
+    virtualSkyHandler=e => {
+        this.setState({skyVisible: !this.state.skyVisible})
+    }
+
     render() {
         return (
 <div style={{ height: '100vh', width: '100vw'}}>
-
-    <VirtualSky/>
-
+    {this.state.skyVisible&&<VirtualSky />}
+<button type="submit" onClick={this.virtualSkyHandler}>Open</button>
     <ReactGlobal
         globeOptions={{
         backgroundTexture: "./Images/8k_stars_milky_way.png",
@@ -28,7 +35,8 @@ class Global extends Component {
         pointLightIntensity: 2,
         pointLightPositionRadiusScales: [-2, 0, -1],
         }}
-    />
+
+        />
 </div>
         );
     }

@@ -8,12 +8,16 @@ class VirtualSky extends Component {
         showMeridian: false,
         showPlanets: false,
         showPlanetLabels: false,
-        azimuthGridlines: false,
+        azimuthGridlines: true,
         constellationLabels: false,
         constellations: false
     }
     
+    setToggle=(data) => {
+        this.setState({[data]: !this.state[data]})
+    }
     render() {
+
         const settings=`longitude=-119.86286000000001&\
 showplanets=${this.state.showPlanets}&\
 showplanetlabels=${this.state.showPlanetLabels}&\
@@ -35,7 +39,7 @@ az=271.5665939727662`
 
         return (
             <div>
-            <ToggleDiv/>
+                <ToggleDiv setToggle={this.setToggle}/>
             <iframe title="virtualSky" style={{
                 height: '70vh',
                 width: '70vw',
