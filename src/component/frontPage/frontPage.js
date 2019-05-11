@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
+import Particles from '../particles/particles'
 import styled from 'styled-components'
-
 const Div1 = styled.div`
     background: black;
     width: 100vw;
@@ -30,6 +30,7 @@ class FrontPage extends Component {
     render() {
         return (
             <Div1>
+                <Particles/>
                 <Div2>
                     <Title>GLOBAL</Title>
                 </Div2>
