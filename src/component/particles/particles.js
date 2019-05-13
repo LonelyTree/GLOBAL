@@ -7,7 +7,8 @@ position: absolute;
 width: 100vw;
 height: 100vh;
 background-size: cover;
-background-image: url(https://deepspaceplace.com/images/ic434.jpg)
+background-image: url(http://pavbca.com/walldb/original/5/5/b/1153.jpg)
+${'' /* background-image: url(https://deepspaceplace.com/images/ic434.jpg) */}
 `
 
 class Particle extends Component{
@@ -18,7 +19,7 @@ class Particle extends Component{
                 params={{
                     "particles": {
                         "number": {
-                            "value": 100,
+                            "value": 40,
                             "density": {
                                 "enable": true,
                                 "value_area": 400.7060304327614
@@ -47,7 +48,7 @@ class Particle extends Component{
                             "random": false,
                             "anim": {
                                 "enable": true,
-                                "speed": 0.1196803196803197,
+                                "speed": 0.6196803196803197,
                                 "opacity_min": 0.28771228771228774,
                                 "sync": false
                             }
@@ -57,7 +58,7 @@ class Particle extends Component{
                             "random": true,
                             "anim": {
                                 "enable": true,
-                                "speed": 4.783216783216783,
+                                "speed": 6.783216783216783,
                                 "size_min": 0,
                                 "sync": false
                             }

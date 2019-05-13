@@ -7,7 +7,7 @@ position: absolute;
 }
 
 video {
-width: 60%;
+width: 100%;
 display: block;
 margin: 0 auto;
 -webkit-clip-path: url(#clip-00);
