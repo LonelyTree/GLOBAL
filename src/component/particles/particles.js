@@ -7,7 +7,7 @@ position: absolute;
 width: 100vw;
 height: 100vh;
 background-size: cover;
-background-image: url(https://www.solarsystemscope.com/textures/download/8k_stars_milky_way.jpg)
+background-image: url(https://deepspaceplace.com/images/ic434.jpg)
 `
 
 class Particle extends Component{
@@ -18,10 +18,10 @@ class Particle extends Component{
                 params={{
                     "particles": {
                         "number": {
-                            "value": 317,
+                            "value": 100,
                             "density": {
                                 "enable": true,
-                                "value_area": 801.7060304327614
+                                "value_area": 400.7060304327614
                             }
                         },
                         "color": {
@@ -47,7 +47,7 @@ class Particle extends Component{
                             "random": false,
                             "anim": {
                                 "enable": true,
-                                "speed": 0.3196803196803197,
+                                "speed": 0.1196803196803197,
                                 "opacity_min": 0.28771228771228774,
                                 "sync": false
                             }
@@ -57,8 +57,8 @@ class Particle extends Component{
                             "random": true,
                             "anim": {
                                 "enable": true,
-                                "speed": 16.783216783216783,
-                                "size_min": 0.1,
+                                "speed": 4.783216783216783,
+                                "size_min": 0,
                                 "sync": false
                             }
                         },
@@ -71,7 +71,7 @@ class Particle extends Component{
                         },
                         "move": {
                             "enable": true,
-                            "speed": 0.6,
+                            "speed": 0.3,
                             "direction": "top-right",
                             "random": false,
                             "straight": true,
@@ -92,7 +92,7 @@ class Particle extends Component{
                                 "mode": "repulse"
                             },
                             "onclick": {
-                                "enable": true,
+                                "enable": false,
                                 "mode": "repulse"
                             },
                             "resize": true
@@ -125,7 +125,6 @@ class Particle extends Component{
                     },
                     "retina_detect": false
                 }}
-
             />
             </Sparkle>
         );

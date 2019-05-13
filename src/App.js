@@ -2,7 +2,6 @@ import React from 'react';
 import Global from './component/global/Global'
 import FrontPage from './component/frontPage/frontPage'
 
-import './App.css';
 
 
 function App() {
