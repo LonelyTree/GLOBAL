@@ -8,14 +8,19 @@ class App extends Component{
     logged: false
   }
 
-  userLogin=(e) => {
-  this.setState({logged: !this.state.logged})
+  userLogin=(login) => {
+    if(login.logged) {
+      this.setState({
+        logged: !this.state.logged,
+        name: login.name
+      })
+    }
 }
 render(){
   return (
     <div className="App">
       {this.state.logged&&<Global />}
-  <FrontPage userLogin={this.userLogin} />
+  <FrontPage logged={this.userLogin} />
     </div>
   );
 }

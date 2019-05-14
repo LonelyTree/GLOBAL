@@ -19,7 +19,7 @@ class Particle extends Component{
                 params={{
                     "particles": {
                         "number": {
-                            "value": 40,
+                            "value": 60,
                             "density": {
                                 "enable": true,
                                 "value_area": 400.7060304327614
@@ -58,13 +58,13 @@ class Particle extends Component{
                             "random": true,
                             "anim": {
                                 "enable": true,
-                                "speed": 6.783216783216783,
+                                "speed": 10.783216783216783,
                                 "size_min": 0,
                                 "sync": false
                             }
                         },
                         "line_linked": {
-                            "enable": true,
+                            "enable": false,
                             "distance": 272.58005034713887,
                             "color": "#ffffff",
                             "opacity": 0.008017060304327615,
@@ -72,7 +72,7 @@ class Particle extends Component{
                         },
                         "move": {
                             "enable": true,
-                            "speed": 0.3,
+                            "speed": 0.8,
                             "direction": "top-right",
                             "random": false,
                             "straight": true,
