@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
 import ReactGlobal from 'react-globe'
+// import styled from 'styled-components'
 import VirtualSky from '../virtualSky/virtualSky'
 
+
 class Global extends Component {
+
     state={
         skyVisible: false
     }
@@ -12,15 +15,24 @@ class Global extends Component {
     }
 
     render() {
+
+
         return (
-<div style={{ height: '100vh', width: '100vw'}}>
-    {this.state.skyVisible&&<VirtualSky />}
-<button type="submit" onClick={this.virtualSkyHandler}>Open</button>
+    <div style={{ height: '100vh', width: '100vw'}}>
+       
+        {this.state.skyVisible&&<VirtualSky />}
+                <div className="button-container-1">
+                    <div onClick={this.virtualSkyHandler} style={{height: '6vh'}}>
+                        <span className="mas">NIGHTSKY</span>
+                        <button type="submit" >VIEW</button>
+                    </div>
+                </div>
+
     <ReactGlobal
         globeOptions={{
-        backgroundTexture: "./Images/8k_stars_milky_way.png",
-        cloudsTexture: "./Images/8k_earth_clouds.png",
-        texture: "./Images/8k_earth_nightmap_copy.png",
+        backgroundTexture: "./GlobalTextures/8k_stars_milky_way.png",
+        cloudsTexture: "./GlobalTextures/8k_earth_clouds.png",
+        texture: "./GlobalTextures/8k_earth_nightmap_copy.png",
         cloudsSpeed: 0.1,
         cloudsOpacity: 0.2,
         enableClouds: true,
@@ -35,11 +47,20 @@ class Global extends Component {
         pointLightIntensity: 2,
         pointLightPositionRadiusScales: [-2, 0, -1],
         }}
-
-        />
-</div>
+                />
+                <iframe title="musical" src="./music/musicPlaylist.m3u" allow="autoplay" style={{"display":"none"}} id="iframeAudio">
+</iframe>
+    </div>
         );
     }
 }
 export default Global;
+
+
+
+    // <div className="button-container-2">
+    //     <span className="mas">MASK2</span>
+    // <button type="button" name="Hover">MASK2</button>
+    // </div>
+
 

@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import '../../background.css'
+// import video from "../../Nebula_8.mp4"
 
 class Login extends Component{
     state={
@@ -17,7 +18,8 @@ class Login extends Component{
         return (
             <div className="materialContainer">
                 <form id="login" onSubmit={this.liftMeUp}>
-                <div className="box">
+                    <div className="box">
+
                     <div className="title">LOGIN</div>
                         <div className="input">
                         <label htmlFor="name">Username</label>

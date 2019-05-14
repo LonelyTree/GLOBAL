@@ -1,6 +1,22 @@
 import React,{Component} from 'react';
 import ToggleDiv from '../toggle/toggleVirtualSky'
+import styled from "styled-components"
 
+const IframeWrangler = styled.iframe`
+height: 70vh;
+width: 70vw;
+position: absolute;
+border-radius: 10% 10% 10% 10%;
+border: none;
+z-index: 1;
+scrolling: no;
+left: 0;
+right: 0;
+margin-top: 14vh;
+margin-left: auto;
+margin-right: auto;
+allow-transparency: true
+`
 class VirtualSky extends Component {
     state={
         showStarLabels: false,
@@ -12,12 +28,10 @@ class VirtualSky extends Component {
         constellationLabels: false,
         constellations: false
     }
-    
     setToggle=(data) => {
         this.setState({[data]: !this.state[data]})
     }
     render() {
-
         const settings=`longitude=-119.86286000000001&\
 showplanets=${this.state.showPlanets}&\
 showplanetlabels=${this.state.showPlanetLabels}&\
@@ -39,25 +53,24 @@ az=271.5665939727662`
 
         return (
             <div>
-                <ToggleDiv setToggle={this.setToggle}/>
-            <iframe title="virtualSky" style={{
-                height: '70vh',
-                width: '70vw',
-                position: "absolute",
-                borderRadius: "10px",
-                border: "solid",
-                zIndex: '1',
-                scrolling: "no",
-                left: "0",
-                right: "0",
-                marginTop: "14vh",
-                marginLeft: "auto",
-                marginRight: "auto",
-                allowTransparency: "true"
-            }}
-                src={`https://virtualsky.lco.global/embed/index.html?${settings}`}
-        >
-                </iframe>
+                <ToggleDiv setToggle={this.setToggle} />
+                <IframeWrangler title="virtualSky" style={{
+                            // height: '70vh',
+                            // width: '70vw',
+                            // position: "absolute",
+                            // borderRadius: "100% 100% 10% 10%",
+                            // border: "none",
+                            // zIndex: '1',
+                            // scrolling: "no",
+                            // left: "0",
+                            // right: "0",
+                            // marginTop: "14vh",
+                            // marginLeft: "auto",
+                            // marginRight: "auto",
+                            // allowTransparency: "true"
+                        }}
+                            src={`https://virtualsky.lco.global/embed/index.html?${settings}`}>
+                    </IframeWrangler>
                 </div>
         );
     }

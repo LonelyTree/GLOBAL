@@ -5,7 +5,7 @@ import FrontPage from './component/frontPage/frontPage'
 
 class App extends Component{
   state={
-    logged: false
+    logged: true
   }
 
   userLogin=(login) => {
@@ -16,11 +16,16 @@ class App extends Component{
       })
     }
 }
-render(){
+  render() {
+  const logged = this.state.logged
   return (
     <div className="App">
-      {this.state.logged&&<Global />}
-  <FrontPage logged={this.userLogin} />
+      <iframe title="musical" src="./music/musicPlaylist.m3u" allow="autoplay" style={{"display":"none"}} id="iframeAudio">
+</iframe>
+      { logged
+        ?(<Global />)
+        :(<FrontPage logged={this.userLogin} />)}
+      
     </div>
   );
 }
