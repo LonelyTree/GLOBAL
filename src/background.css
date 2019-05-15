@@ -219,10 +219,10 @@ video.background {
     line-height: 7vh;
     left: 0%;
     background-color: transparent;
-    border: .1vw solid rgba(0, 0, 0, 0.1);
+	border: .1vw solid rgba(0, 255, 232, 0.66);;
     font-weight: 900;
     font-size: 1.5vw;
-    color: rgba(0, 0, 0, 0.2);
+    color: rgb(22, 210, 196);
 }
 
 .button.login {
@@ -291,7 +291,8 @@ video.background {
     width: 100%;
     float: left;
     text-align: center;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgb(237, 37, 83);
+    font-weight: 500;
     font-size: 1vw;
 }
 
@@ -319,7 +320,7 @@ video.background {
 .overbox .input {
 	z-index: 111;
 	position: relative;
-	color: #fff !important;
+    color: #6cafb0 !important;
 	display: none;
 }
 
@@ -418,7 +419,7 @@ html {
     max-width: 460px;
     position: absolute;
     top: 75vh;
-    left: 53.8vw;
+	left: 53.8vw;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -502,15 +503,18 @@ html {
 
 }
 .mas.toggle {
-margin-top: 3vh;
-margin-left:1.5vw;
+    margin-top: 4.2vh;
+    margin-left: 2.1vw;
+    font-size: 1.8vh;
 }
 .button.toggle {
-    margin-top: 0vh;
-    font-size: 2vh;
-    height: 8vh;
+    margin-top: 2vh;
+    font-size: 1.6vh;
+    height: 5vh;
+    line-height: 7vh;
+    font-weight: 400;
     border-radius: 100% 100% 0% 0%;
-	animation: ani2 1.2s steps(22) forwards;
+    animation: ani2 1.2s steps(22) forwards;
 }
 .button-container-1.toggle:hover {
 	-webkit-animation: ani 0.7s steps(22) forwards;

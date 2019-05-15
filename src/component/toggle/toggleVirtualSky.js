@@ -10,7 +10,7 @@ scrolling: no;
 text-align: center;
 left: 0;
 margin-top: 9vh;
-margin-left: 15vw;
+margin-left: 14vw;
 allow-transparency: true
 `
 

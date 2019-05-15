@@ -1,11 +1,17 @@
 import React,{Component} from 'react';
 import Global from './component/global/Global'
 import FrontPage from './component/frontPage/frontPage'
+import Music from './component/player/music'
 
 
 class App extends Component{
   state={
-    logged: true
+    logged: false
+  }
+
+  componentDidMount() {
+    // var audio = document.getElementById("audio");
+    // audio.play();
   }
 
   userLogin=(login) => {
@@ -20,12 +26,16 @@ class App extends Component{
   const logged = this.state.logged
   return (
     <div className="App">
-      <iframe title="musical" src="./music/musicPlaylist.m3u" allow="autoplay" style={{"display":"none"}} id="iframeAudio">
-</iframe>
+      <Music audioSources={["https://s0.vocaroo.com/media/download_temp/Vocaroo_s0ufhklDs1k2.mp3","https://s1.vocaroo.com/media/download_temp/Vocaroo_s1TqHehK0FmE.mp3","https://s1.vocaroo.com/media/download_temp/Vocaroo_s17RtUOoWiqD.mp3"]} />
+
+      {/* <audio id="audio" src="https://s1.vocaroo.com/media/download_temp/Vocaroo_s1TqHehK0FmE.mp3"  loop autoPlay></audio> */}
+      {/* <audio id="audio" src="https://s0.vocaroo.com/media/download_temp/Vocaroo_s0ufhklDs1k2.mp3" ></audio>
+      <audio id="audio" src="https://s1.vocaroo.com/media/download_temp/Vocaroo_s17RtUOoWiqD.mp3" ></audio> */}
+
       { logged
         ?(<Global />)
         :(<FrontPage logged={this.userLogin} />)}
-      
+
     </div>
   );
 }

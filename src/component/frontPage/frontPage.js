@@ -4,7 +4,7 @@ import Login from '../Login/login'
 import styled from 'styled-components'
 import '../../background.css'
 import video from "../../Earth.mp4"
-import ComplicatedAssJquery from '../jQuery/jQueryFunction'
+import '../jQuery/jQueryFunction'
 
 
 
@@ -48,9 +48,6 @@ logged=async(input,e) => {
 }
 
 
-    componentDidMount() {
-        ComplicatedAssJquery()
-    }
 
     render() {
 
