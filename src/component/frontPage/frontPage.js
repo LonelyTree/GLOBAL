@@ -30,30 +30,10 @@ const Div3=styled.div`
 
 
 class FrontPage extends Component {
-
-    state={
-        logged:false
-}
-
-logged=async(input,e) => {
-    try {
-        await this.setState({
-            name: input.name,
-            logged: true
-        })
-    console.log(this.setState)
-    this.props.logged(this.state)
-    } catch (e) {
-    }
-}
-
-
-
     render() {
-
         return (
             <Div1>
-                <Login login={this.logged}/>
+                <Login logger={this.props.logger} state={this.props.state}/>
                 <Particles/>
                 <Div2>
                     <svg>
@@ -74,7 +54,6 @@ logged=async(input,e) => {
                         <source src={video} type="video/mp4"/>
                     </video>
                 </Div3>
-                
             </Div1>
         );
     }

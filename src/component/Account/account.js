@@ -6,9 +6,9 @@ const Wrapper=styled.div`
     box-shadow: inset 0 0 15px #000000;
     margin-top: 1vh;
     margin-left: 39.98vw;
-    border-radius: 2vh;
+    border-radius: 12vh 12vh 2vh 2vh;
     width: 40vh;
-    height: 11vh;
+    height: 17vh;
     background: #2828497a;
     -webkit-mask-image: radial-gradient(circle 5vh at center 412px,transparent 0,transparent 361px,#1b1f2c 21px);
 `

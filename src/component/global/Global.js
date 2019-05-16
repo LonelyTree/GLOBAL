@@ -3,6 +3,7 @@ import ReactGlobal from 'react-globe'
 import VirtualSky from '../virtualSky/virtualSky'
 import styled from 'styled-components'
 import Account from '../Account/account'
+import Logout from '../logout/logout'
 
 const Wrapper=styled.div`
     position: absolute;
@@ -18,7 +19,7 @@ const Wrapper=styled.div`
 `
 const View=styled.button`
     transition: 0.5s;
-    border-radius: 9%;
+    border-radius: 2vh 2vh 12vh 12vh;
     box-shadow: inset 0 0 15px #000000;
     width: 101%;
     background: #2d2d547a;
@@ -52,7 +53,8 @@ class Global extends Component {
 
 
         return (
-    <div style={{ height: '100vh', width: '100vw'}}>
+            <div style={{height: '100vh',width: '100vw'}}>
+    <Logout logger={this.props.logger} state={this.props.state} />
     <Account/>
         {this.state.skyVisible&&<VirtualSky />}
                 <Wrapper>
