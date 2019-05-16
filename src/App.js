@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Global from './component/global/Global'
 import FrontPage from './component/frontPage/frontPage'
+import Account from './component/userMenu/account'
+import Backpack from './component/userMenu/backpack'
+import Coordinates from './component/userMenu/backpack/coordinates'
+import Apod from './component/userMenu/backpack/apod'
+import Notes from './component/userMenu/backpack/notes'
+
 import {Route,Switch} from 'react-router-dom';
 
 // import Music from './component/player/music'
@@ -29,8 +35,11 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <FrontPage logger={this.logger} state={this.state} />}/>
           <Route exact path="/global"  render={() => <Global logger={this.logger} state={this.state} />} />
-          {/* <Route exact path="/account" component={Account} />
-        <Route exact path="/backpack" component={Backpack} /> */}
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/backpack" component={Backpack} />
+          <Route exact path="/coordinates" component={Coordinates} />
+          <Route exact path="/apod" component={Apod} />
+          <Route exact path="/notes" component={Notes} />
           <Route component={My404} />
         </Switch>
       </main>

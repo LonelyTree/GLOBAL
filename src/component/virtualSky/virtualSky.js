@@ -26,16 +26,24 @@ class VirtualSky extends Component {
         showPlanetLabels: false,
         azimuthGridlines: true,
         constellationLabels: false,
-        constellations: false
+        constellations: false,
+        longitude: -119.86286000000001,
+        latitude: 34.4326
     }
     setToggle=(data) => {
         this.setState({[data]: !this.state[data]})
     }
+    setCoordinates=(latLon) => {
+        this.setState({
+            latitude: latLon.latitude,
+            longitude: latLon.longitude
+        })
+    }
     render() {
-        const settings=`longitude=-119.86286000000001&\
+        const settings=`longitude=${this.state.longitude}&\
+latitude=${this.state.longitude}&\
 showplanets=${this.state.showPlanets}&\
 showplanetlabels=${this.state.showPlanetLabels}&\
-latitude=34.4326&\
 constellations=${this.state.constellations}&\
 showstarlabels=${this.state.showStarLabels}&\
 scalestars=1.3&\
@@ -53,21 +61,8 @@ az=271.5665939727662`
 
         return (
             <div>
-                <ToggleDiv setToggle={this.setToggle} />
+                <ToggleDiv setToggle={this.setToggle} setCoordinates={this.setCoordinates} />
                 <IframeWrangler title="virtualSky" style={{
-                            // height: '70vh',
-                            // width: '70vw',
-                            // position: "absolute",
-                            // borderRadius: "100% 100% 10% 10%",
-                            // border: "none",
-                            // zIndex: '1',
-                            // scrolling: "no",
-                            // left: "0",
-                            // right: "0",
-                            // marginTop: "14vh",
-                            // marginLeft: "auto",
-                            // marginRight: "auto",
-                            // allowTransparency: "true"
                         }}
                             src={`https://virtualsky.lco.global/embed/index.html?${settings}`}>
                     </IframeWrangler>

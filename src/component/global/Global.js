@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactGlobal from 'react-globe'
 import VirtualSky from '../virtualSky/virtualSky'
 import styled from 'styled-components'
-import Account from '../Account/account'
+import UserMenu from '../userMenu/userMenu'
 import Logout from '../logout/logout'
 
 const Wrapper=styled.div`
@@ -55,7 +55,7 @@ class Global extends Component {
         return (
             <div style={{height: '100vh',width: '100vw'}}>
     <Logout logger={this.props.logger} state={this.props.state} />
-    <Account/>
+    <UserMenu/>
         {this.state.skyVisible&&<VirtualSky />}
                 <Wrapper>
                     <div onClick={this.virtualSkyHandler} style={{height: '6vh'}}>
