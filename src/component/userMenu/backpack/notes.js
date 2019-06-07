@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import styled from 'styled-components'
 import video from '../../../../src/Notes.mp4'
 import Particles from '../../particles/particles'
-// import {Redirect} from 'react-router-dom'
 
 const Anchor=styled.div`
 position: absolute;
@@ -18,14 +17,14 @@ const Container=styled.div`
     overflow:hidden;
 `
 const MovingBackground=styled.video`
-    width: 100%;
-    height: 57%;
+    width: 94%;
+    height: 56%;
 `
 const Editor=styled.div`
     position: absolute;
     margin-left: 61vh;
     width: 80vh;
-    height: 50vw;
+    height: 53vw;
     background: #3c3c7d45;
 `
 
@@ -34,7 +33,7 @@ const Editor=styled.div`
 class Notes extends Component{
     render() {
         return (<Anchor>
-            <Particles/>
+            <Particles />
             <Container>
                 <Editor>
 

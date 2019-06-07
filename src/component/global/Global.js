@@ -4,6 +4,8 @@ import VirtualSky from '../virtualSky/virtualSky'
 import styled from 'styled-components'
 import UserMenu from '../userMenu/userMenu'
 import Logout from '../logout/logout'
+import AtomSpinner from '../atomSpinner/atomSpinner'
+import Particle from '../particles/particles';
 
 const Wrapper=styled.div`
     position: absolute;
@@ -21,7 +23,7 @@ const View=styled.button`
     transition: 0.5s;
     border-radius: 2vh 2vh 12vh 12vh;
     box-shadow: inset 0 0 15px #000000;
-    width: 101%;
+    width: 100%;
     background: #2d2d547a;
     height: 12vh;
     font-family: 'Lato',sans-serif;
@@ -42,20 +44,25 @@ const View=styled.button`
 class Global extends Component {
 
     state={
-        skyVisible: false
+        skyVisible: false,
+        isLoading: true
     }
 
     virtualSkyHandler=e => {
         this.setState({skyVisible: !this.state.skyVisible})
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({isLoading: false})
+    },2000)
+}
     render() {
-
-
         return (
             <div style={{height: '100vh',width: '100vw'}}>
-    <Logout logger={this.props.logger} state={this.props.state} />
-    <UserMenu/>
+                {this.state.isLoading&&(<div><Particle/><AtomSpinner /></div>)}
+                <Logout logger={this.props.logger} state={this.props.state}/>
+    <UserMenu logger={this.props.logger} state={this.props.state} {...this.props} />
         {this.state.skyVisible&&<VirtualSky />}
                 <Wrapper>
                     <div onClick={this.virtualSkyHandler} style={{height: '6vh'}}>

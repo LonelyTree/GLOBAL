@@ -4,18 +4,18 @@ import {Redirect} from 'react-router-dom'
 
 const LogoutButton=styled.button`
     position: absolute;
-    margin-left: 3vh;
-    margin-top: 2vh;
-    padding-left: 2vh;
-    height: 4vh;
-    width: 8.1vw;
+    z-index: 30;
+    margin-left: 4%;
+    margin-top: 2%;
+    height: 4%;
+    width: 9%;
     background: #2e3b762e;
     border: none;
     border-radius: 6vh;
     cursor: pointer;
     font-family: 'Lato',sans-serif;
     font-weight: 300;
-    font-size: 3vh;
+    font-size: 1.6vw;
     color: #ed255373;
 `
 
@@ -47,11 +47,12 @@ class Logout extends Component{
     render() {
         if(this.props.state.logged!==true) {
             return <Redirect to='/' />
-        }
-        return (
+        } else {
+            return (
         <LogoutButton
-                type="submit" onClick={this.handleLogout}>LOGOUT
+                    type="submit" onClick={this.handleLogout}>LOGOUT
         </LogoutButton>)
+        }
     }
 }
 

@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import '../../background.css'
 import video from "../../Earth.mp4"
 import '../jQuery/jQueryFunction'
+// import {Redirect} from 'react-router-dom'
 
 
 
@@ -33,7 +34,7 @@ class FrontPage extends Component {
     render() {
         return (
             <Div1>
-                <Login logger={this.props.logger} state={this.props.state}/>
+                <Login logger={this.props.logger} state={this.props.state} {...this.props}/>
                 <Particles/>
                 <Div2>
                     <svg>

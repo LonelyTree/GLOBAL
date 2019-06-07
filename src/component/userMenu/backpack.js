@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import styled from 'styled-components'
 import video from '../../../src/Background1.mp4'
 import Particles from '../particles/particles'
-import {Redirect} from 'react-router-dom'
+import Logout from '../logout/logout'
 
 const Bag=styled.div`
     position: absolute;
@@ -23,11 +23,11 @@ const Contents=styled.div`
     position: absolute;
     margin-left: 61vh;
     width: 80vh;
-    height: 50vw;
+    height: 53vw;
     background: #3c3c7d45;
 `
 const MovingBackground=styled.video`
-    width: 100%;
+    width: 95%;
     height: 57%;
 `
 const Submissions=styled.button`
@@ -57,35 +57,30 @@ const Submissions=styled.button`
 
 class Backpack extends Component{
     state={
-        coordinates: [],
-        favorites: [],
-        notes: [],
         coordinateClick: false,
         apodClick: false,
         notesClick: false
     }
 
-    toCoordinates=() => {
+    toCoordinates=(e) => {
         this.setState({coordinateClick: !this.state.coordinateClick})
+        this.props.history.push("/coordinates")
     }
-    toAPOD=() => {
+    toAPOD=(e) => {
         this.setState({apodClick: !this.state.apodClick})
+        this.props.history.push("/apod")
     }
-    toNotes=() => {
+    toNotes=(e) => {
         this.setState({notesClick: !this.state.notesClick})
+        this.props.history.push("/notes")
+    }
+    componentDidMount() {
+        
     }
     render() {
-        if(this.state.coordinateClick) {
-            return <Redirect to='/coordinates'/>
-        }
-        if(this.state.apodClick) {
-            return <Redirect to='/apod'/>
-        }
-        if(this.state.notesClick) {
-            return <Redirect to='/notes'/>
-        }
         return(<Bag>
-            <Particles/>
+            <Particles />
+            <Logout logger={this.props.logger} state={this.props.state} />
             <Container>
                 <Contents>
                     <Submissions type="submit" name="coordinates" onClick={this.toCoordinates}>COORDINATES</Submissions>

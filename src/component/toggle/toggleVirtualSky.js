@@ -16,7 +16,7 @@ allow-transparency: true
 const NavDiv=styled.div`
     position: absolute;
     z-index: 5;
-    margin-left: 40vh;
+    margin-left: 35vh;
     margin-top: 70vh;
     font-size: 2vh;
 `

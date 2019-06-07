@@ -7,7 +7,7 @@ position: absolute;
 width: 100vw;
 height: 100vh;
 background-size: cover;
-background-image: url(http://pavbca.com/walldb/original/5/5/b/1153.jpg)
+background-image: url("http://pavbca.com/walldb/original/5/5/b/1153.jpg")
 ${'' /* background-image: url(https://deepspaceplace.com/images/ic434.jpg) */}
 `
 

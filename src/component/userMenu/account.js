@@ -17,14 +17,14 @@ const Container=styled.div`
     overflow:hidden;
 `
 const MovingBackground=styled.video`
-    width: 100%;
+    width: 95%;
     height: 57%;
 `
 const Editor=styled.div`
     position: absolute;
     margin-left: 61vh;
     width: 80vh;
-    height: 50vw;
+    height: 54vw;
     background: #3c3c7d45;
 `
 

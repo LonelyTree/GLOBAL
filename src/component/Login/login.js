@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import '../../background.css'
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 class Login extends Component{
     state={
@@ -30,7 +30,7 @@ class Login extends Component{
                 console.log(parsedResponse.data)
             if(parsedResponse.data==='LOGIN SUCCESSFUL') {
                 this.props.logger({logged: true})
-
+                this.props.history.push("/global")
             } else if(parsedResponse.data==='Please make an account to login.') {
                 alert("Please make an account to login.")
             } else if(parsedResponse.data==='username taken') {
@@ -42,9 +42,9 @@ class Login extends Component{
 
     }
     render() {
-        if(this.props.state.logged) {
-            return <Redirect to='/global' />
-        }
+        //     if(this.props.state.logged) {
+        //     return <Redirect to='/global' />
+        // }
             return (
                 <div className="materialContainer">
 

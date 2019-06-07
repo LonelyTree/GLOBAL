@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const ButtonLoc=styled.button`
     position: absolute;
-    margin-left: 190vh;
+    margin-left: 175vh;
     margin-top: 2vh;
     height: 7vh;
     width: 4.1vw;
@@ -41,7 +41,6 @@ getInitialState=()=>{
 
 componentDidMount=() => {
     this.audio.src=this.props.audioSources[this.state.activeAudioIndex]
-    this.audio.play()
     this.audio.onended = this.nextSong(this.togglePlay())
     this.audio.addEventListener("ended", this.nextSong())
 }
@@ -64,7 +63,7 @@ render() {
         this.nextSong().play();
     }
     return (
-        <div style={{position: "absolute", zIndex: "30"}} >
+        <div style={{position: "absolute", zIndex: "300"}} >
         <ButtonLoc onClick={this.togglePlay}>{this.state.play ? 'Pause' : 'Play'}</ButtonLoc>
         </div>
     );

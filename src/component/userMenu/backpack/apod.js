@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import styled from 'styled-components'
 import video from '../../../../src/Apod.mp4'
 import Particles from '../../particles/particles'
-// import {Redirect} from 'react-router-dom'
 
 const Anchor=styled.div`
 position: absolute;
