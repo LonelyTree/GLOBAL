@@ -1,50 +1,53 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import video from '../../../../src/Notes.mp4'
-import Particles from '../../particles/particles'
+import video from '../../../../src/media/backgroundVideo/Notes.mp4'
+import Particles from '../../particles'
 
-const Anchor=styled.div`
-position: absolute;
-    width: 200vh;
-    height: 100vw;
+const Anchor = styled.div`
+	position: absolute;
+	width: 200vh;
+	height: 100vw;
 `
-const Container=styled.div`
-    position: absolute;
-    border-radius: 100%;
-    width: 200vh;
-    height: 100vw;
-    background: #23232c;
-    overflow:hidden;
+const Container = styled.div`
+	position: absolute;
+	border-radius: 100%;
+	width: 200vh;
+	height: 100vw;
+	background: #23232c;
+	overflow: hidden;
 `
-const MovingBackground=styled.video`
-    width: 94%;
-    height: 56%;
+const MovingBackground = styled.video`
+	width: 94%;
+	height: 56%;
 `
-const Editor=styled.div`
-    position: absolute;
-    margin-left: 61vh;
-    width: 80vh;
-    height: 53vw;
-    background: #3c3c7d45;
+const Editor = styled.div`
+	position: absolute;
+	margin-left: 61vh;
+	width: 80vh;
+	height: 53vw;
+	background: #3c3c7d45;
 `
 
-
-
-class Notes extends Component{
-    render() {
-        return (<Anchor>
-            <Particles />
-            <Container>
-                <Editor>
-
-                </Editor>
-                <MovingBackground className="account" loop={true} autoPlay={true} muted={true} playsInline={true} >
-                        <source src={video} type="video/mp4"/>
-                </MovingBackground>
-            </Container>
-        </Anchor>)
-    }
+class Notes extends Component {
+	render() {
+		return (
+			<Anchor>
+				<Particles />
+				<Container>
+					<Editor></Editor>
+					<MovingBackground
+						className="account"
+						loop={true}
+						autoPlay={true}
+						muted={true}
+						playsInline={true}
+					>
+						<source src={video} type="video/mp4" />
+					</MovingBackground>
+				</Container>
+			</Anchor>
+		)
+	}
 }
-
 
 export default Notes
