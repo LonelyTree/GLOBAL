@@ -1,64 +1,78 @@
 import React, { Component } from 'react'
-import '../../css/background.css'
-// import {Redirect} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { compose } from 'recompose'
 
-class Login extends Component {
-	state = {
-		username: '',
-		password: '',
-		reguser: '',
-		regpassword: '',
-	}
+import { withFirebase } from '../firebase'
+import * as ROUTES from '../../constants/routes'
+import '../../css/login.css'
 
+const LoginPage = () => <Login />
+
+const INITIAL_STATE = {
+	email: '',
+	password: '',
+	regEmail: '',
+	regPassword: '',
+	regPasswordTwo: '',
+	error: null,
+}
+class LoginBase extends Component {
+	state = { ...INITIAL_STATE }
 	handleChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value })
 	}
-
-	handleLogin = async (e) => {
-		e.preventDefault()
-		try {
-			const loginResponse = await fetch('http://localhost:9000/auth', {
-				method: 'POST',
-				credentials: 'include',
-				body: JSON.stringify(this.state),
-				headers: {
-					'Content-Type': 'application/json',
-				},
+	Register = (e) => {
+		const { regEmail, regPassword } = this.state
+		this.props.firebase
+			.doCreateUserWithEmailAndPassword(regEmail, regPassword)
+			.then((authUser) => {
+				this.setState({ authUser: true, ...INITIAL_STATE })
+				this.props.history.push(ROUTES.HOME)
 			})
-			const parsedResponse = await loginResponse.json()
-			console.log(parsedResponse.data)
-			if (parsedResponse.data === 'LOGIN SUCCESSFUL') {
-				this.props.logger({ logged: true })
-				this.props.history.push('/global')
-			} else if (parsedResponse.data === 'Please make an account to login.') {
-				alert('Please make an account to login.')
-			} else if (parsedResponse.data === 'username taken') {
-				alert('That username has already been taken. Please choose another.')
-			}
-		} catch (e) {
-			console.log(e)
-		}
+			.catch((error) => {
+				alert(error.message)
+			})
+		e.preventDefault()
 	}
+	SignIn = (e) => {
+		const { email, password } = this.state
+		this.props.firebase
+			.doSignInWithEmailAndPassword(email, password)
+			.then(() => {
+				this.setState({ ...INITIAL_STATE })
+				this.props.history.push(ROUTES.HOME)
+			})
+			.catch((error) => {
+				alert(error.message)
+			})
+		e.preventDefault()
+	}
+
 	render() {
-		//     if(this.props.state.logged) {
-		//     return <Redirect to='/global' />
-		// }
+		const {
+			email,
+			password,
+			regEmail,
+			regPassword,
+			regPasswordTwo,
+		} = this.state
+		const noSignIn = password === '' || email === ''
+		const noRegister = regPassword !== regPasswordTwo || regEmail === ''
 		return (
-			<div className="materialContainer">
-				<form id="login" onSubmit={this.handleLogin}>
+			<div className="material-Container">
+				<form id="login" onSubmit={this.SignIn}>
 					<div className="box">
 						<div className="title">LOGIN</div>
 						<div className="input">
-							<label htmlFor="name">Username</label>
+							<label htmlFor="name">Email</label>
 							<input
 								type="text"
-								name="username"
+								name="email"
 								id="name"
 								onChange={this.handleChange}
 							/>
 							<span className="spin"></span>
 						</div>
-
 						<div className="input">
 							<label htmlFor="pass">Password</label>
 							<input
@@ -71,24 +85,26 @@ class Login extends Component {
 						</div>
 
 						<div className="button login">
-							<button type="Submit">
+							<button type="Submit" disabled={noSignIn}>
 								<span>GO</span> <i className="fa fa-check"></i>
 							</button>
 						</div>
-						<a href="null" className="pass-forgot">
+						<a href="/password-recover" className="pass-forgot">
 							Forgot your password?
 						</a>
 					</div>
+				</form>
+				<form id="register" onSubmit={this.Register}>
 					<div className="overbox">
 						<div className="material-button alt-2">
 							<span className="shape"></span>
 						</div>
 						<div className="title">REGISTER</div>
 						<div className="input">
-							<label htmlFor="regname">Username</label>
+							<label htmlFor="regname">Email</label>
 							<input
 								type="text"
-								name="regusername"
+								name="regEmail"
 								id="regname"
 								onChange={this.handleChange}
 							/>
@@ -98,7 +114,7 @@ class Login extends Component {
 							<label htmlFor="regpass">Password</label>
 							<input
 								type="password"
-								name="regpassword"
+								name="regPassword"
 								id="regpass"
 								onChange={this.handleChange}
 							/>
@@ -108,15 +124,15 @@ class Login extends Component {
 							<label htmlFor="reregpass">Repeat Password</label>
 							<input
 								type="password"
-								name="reregpass"
+								name="regPasswordTwo"
 								id="reregpass"
 								onChange={this.handleChange}
 							/>
 							<span className="spin"></span>
 						</div>
 						<div className="button">
-							<button type="submit">
-								<span>NEXT</span>
+							<button type="submit" disabled={noRegister}>
+								<span>SUBMIT</span>
 							</button>
 						</div>
 					</div>
@@ -125,5 +141,11 @@ class Login extends Component {
 		)
 	}
 }
+const Login = compose(
+	withRouter,
+	withFirebase
+)(LoginBase)
 
-export default Login
+export default LoginPage
+
+export { Login, LoginBase }

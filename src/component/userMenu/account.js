@@ -1,33 +1,11 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import video from '../../../src/media/backgroundVideo/Background1.mp4'
+import video from '../../../src/media/backgroundVideo/Nebula_8.mp4'
+import MainReturn from '../globalButtons/MainMenu'
+import Logout from '../globalButtons/logout'
 import Particles from '../particles'
 
-const Files = styled.div`
-	position: absolute;
-	width: 200vh;
-	height: 100vw;
-`
-const Container = styled.div`
-	position: absolute;
-	border-radius: 100%;
-	width: 200vh;
-	height: 100vw;
-	background: #23232c;
-	overflow: hidden;
-`
-const MovingBackground = styled.video`
-	width: 95%;
-	height: 57%;
-`
-const Editor = styled.div`
-	position: absolute;
-	margin-left: 61vh;
-	width: 80vh;
-	height: 54vw;
-	background: #3c3c7d45;
-`
-
+import { withAuthorization, AuthUserContext } from '../session'
+import '../../css/userMenu/account.css'
 class Account extends Component {
 	state = {
 		username: '',
@@ -41,34 +19,51 @@ class Account extends Component {
 	submit = () => {}
 	render() {
 		return (
-			<Files>
-				<Particles />
-				<Container>
-					<Editor>
-						<input
-							value={this.state.value}
-							name="username"
-							onChange={this.handleChange}
-						></input>
-						<input
-							value={this.state.value}
-							name="password"
-							onChange={this.handleChange}
-						></input>
-						<input type="submit" value="Delete User"></input>
-					</Editor>
-					<MovingBackground
-						className="account"
-						loop={true}
-						autoPlay={true}
-						muted={true}
-						playsInline={true}
-					>
-						<source src={video} type="video/mp4" />
-					</MovingBackground>
-				</Container>
-			</Files>
+			<AuthUserContext.Consumer>
+				{(authUser) => (
+					<div className="account-files">
+						<Particles />
+						<div className="account-container">
+							<Logout />
+							<MainReturn />
+							<div className="account-editor">
+								<h1 className="account-h1">EMAIL</h1>
+								<input
+									className="account-submissions"
+									value={this.state.value}
+									name="username"
+									onChange={this.handleChange}
+								></input>
+								<h1 className="account-h1">PASSWORD</h1>
+								<input
+									className="account-submissions"
+									value={this.state.value}
+									name="password"
+									onChange={this.handleChange}
+								></input>
+								<button className="account-buttons" type="submit">
+									Delete User
+								</button>
+								<button className="account-buttons" type="submit">
+									Update User
+								</button>
+							</div>
+							<video
+								className="account account-movingBackground"
+								loop={true}
+								autoPlay={true}
+								muted={true}
+								playsInline={true}
+							>
+								<source src={video} type="video/mp4" />
+							</video>
+						</div>
+					</div>
+				)}
+			</AuthUserContext.Consumer>
 		)
 	}
 }
-export default Account
+const condition = (authUser) => !!authUser
+
+export default withAuthorization(condition)(Account)

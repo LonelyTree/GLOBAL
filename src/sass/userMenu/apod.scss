@@ -1,0 +1,72 @@
+.apod-anchor {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(8, 12.5%);
+	grid-template-rows: repeat(8, 12.5%);
+	position: fixed;
+}
+
+.apod-container {
+	border-radius: 100%;
+	width: 120%;
+	overflow: hidden;
+	grid-area: 1/3/9/7;
+	height: 110%;
+	margin-left: -5vw;
+	z-index: 1;
+}
+
+.apod-movingBackground {
+	width: 167%;
+}
+
+.apod-viewer {
+	z-index: 5;
+	width: 80vh;
+	height: 100%;
+	background: #3c3c7d45;
+	grid-area: 1/3/9/7;
+	margin-left: 3.7vw;
+	overflow: scroll;
+}
+
+.apod-title {
+	font-size: 5.5vh;
+	text-align: center;
+	font-family: Major Mono Display;
+	line-height: 10vh;
+	color: #fb005fc4;
+}
+
+.apod-NASA {
+	height: 100%;
+}
+
+.apod-descWrapper {
+	overflow: scroll;
+	height: 36vh;
+	border: 0.01vh solid;
+	width: 100%;
+	box-shadow: inset 0 0 10px black;
+	background: #0000006e;
+	margin: 4vw 0;
+}
+
+.apod-desc {
+	color: #05cab6;
+	font-weight: 800;
+	line-height: 5vh;
+	margin: 3vh;
+	font-family: raleway;
+	word-spacing: 0.1vw;
+}
+.apod-date {
+	font-family: Major Mono Display;
+	font-size: 2vw;
+	text-align: center;
+	color: white;
+	background: #ce0f5b30;
+	box-shadow: 0 0 1vw #ca0c5945;
+	font-weight: 900;
+}

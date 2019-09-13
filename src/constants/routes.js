@@ -1,0 +1,8 @@
+export const LANDING = '/'
+export const PASSWORD_FORGET = '/pw-forget'
+export const HOME = '/global'
+export const ACCOUNT = '/account'
+export const BACKPACK = '/backpack'
+export const COORDINATES = '/coordinates'
+export const NOTES = '/notes'
+export const APOD = '/apod'

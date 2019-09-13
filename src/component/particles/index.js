@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Particles from 'react-particles-js'
 
 const Sparkle = styled.div`
-	position: absolute;
+	position: fixed;
 	width: 100vw;
 	height: 100vh;
 	background-size: cover;

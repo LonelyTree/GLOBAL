@@ -1,0 +1,73 @@
+.account-files {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	grid-template-columns: repeat(8, 12.5%);
+	grid-template-rows: repeat(8, 12.5%);
+	display: grid;
+}
+.account-h1 {
+	font-family: Major Mono Display;
+	color: white;
+}
+.account-container {
+	border-radius: 100%;
+	width: 100vw;
+	height: 100vw;
+	background: #23232c;
+	overflow: hidden;
+	grid-area: 1/1/9/9;
+	display: inherit;
+	grid-template-columns: repeat(8, 12.5%);
+	grid-template-rows: repeat(8, 12.5%);
+	z-index: 1;
+}
+
+.account-movingBackground {
+	width: 100%;
+	grid-area: 1/1/9/9;
+	z-index: -1;
+}
+
+.account-editor {
+	width: 80vh;
+	height: 54%;
+	background: #3c3c7d66;
+	grid-area: 1/4/9/6;
+	margin-left: -8.8vw;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.account-submissions {
+	border-radius: 0.5vw;
+	border: none;
+	font-size: 1.3vw;
+	font-family: Major Mono Display;
+	text-align: center;
+	background: #0ee7faab;
+	cursor: pointer;
+	transition: 1s;
+	height: 4vw;
+	line-height: 2.4vw;
+	width: 60%;
+	font-weight: 900;
+	margin: 1vw;
+}
+.account-buttons {
+	transition: 500ms;
+	width: 17%;
+	height: 3%;
+	border-radius: 0.4vw;
+	border: none;
+	font-size: 1vw;
+	margin: 1vw;
+	cursor: pointer;
+	background: #23b6ca;
+	border: solid #ea0e74c2;
+	&:hover {
+		background: #ea0e74c2;
+		border: solid #23b6ca;
+	}
+}

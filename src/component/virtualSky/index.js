@@ -1,37 +1,30 @@
 import React, { Component } from 'react'
-import ToggleDiv from './toggle'
-import styled from 'styled-components'
+import buttons from './toggle/buttons'
+import Iframe from './toggle/iframe'
+import LatLon from './toggle/latLon'
+import '../../css/virtualSky/virtualSky.css'
+import '../../css/virtualSky/toggle.css'
 
-const IframeWrangler = styled.iframe`
-	height: 70vh;
-	width: 70vw;
-	position: absolute;
-	border-radius: 10% 10% 10% 10%;
-	border: none;
-	z-index: 1;
-	scrolling: no;
-	left: 0;
-	right: 0;
-	margin-top: 14vh;
-	margin-left: auto;
-	margin-right: auto;
-	allow-transparency: true;
-`
 class VirtualSky extends Component {
 	state = {
-		showStarLabels: false,
 		showOrbits: false,
 		showMeridian: false,
 		showPlanets: false,
 		showPlanetLabels: false,
-		azimuthGridlines: true,
+		azimuthGridlines: false,
 		constellationLabels: false,
 		constellations: false,
 		longitude: -119.86286000000001,
 		latitude: 34.4326,
 	}
-	setToggle = (data) => {
-		this.setState({ [data]: !this.state[data] })
+	setToggle = ({ target }) => {
+		let name = target.name
+		this.setState({ [name]: !this.state[name] })
+		if (!this.state[name]) {
+			target.className = 'toggleButtons-clicked'
+		} else {
+			target.className = 'toggleButtons'
+		}
 	}
 	setCoordinates = (latLon) => {
 		this.setState({
@@ -45,7 +38,7 @@ latitude=${this.state.longitude}&\
 showplanets=${this.state.showPlanets}&\
 showplanetlabels=${this.state.showPlanetLabels}&\
 constellations=${this.state.constellations}&\
-showstarlabels=${this.state.showStarLabels}&\
+showstarlabels=false&\
 scalestars=1.3&\
 showorbits=${this.state.showOrbits}&\
 meridian=${this.state.showMeridian}&\
@@ -57,18 +50,26 @@ showposition=false&\
 live=true&\
 color=black&\
 az=271.5665939727662`
-
 		return (
-			<div>
-				<ToggleDiv
-					setToggle={this.setToggle}
-					setCoordinates={this.setCoordinates}
-				/>
-				<IframeWrangler
-					title="virtualSky"
-					style={{}}
-					src={`https://virtualsky.lco.global/embed/index.html?${settings}`}
-				></IframeWrangler>
+			<div className="virtualSky-Wrapper">
+				<LatLon setCoordinates={this.setCoordinates} />
+				<div className="toggle-Wrapper">
+					{buttons.map((info, i) => {
+						return (
+							<div key={i} className="button-container-1 toggle">
+								<button
+									type="submit"
+									onClick={this.setToggle}
+									name={info.name}
+									className="toggleButtons"
+								>
+									{info.buttonName}
+								</button>
+							</div>
+						)
+					})}
+				</div>
+				<Iframe settings={settings} />
 			</div>
 		)
 	}

@@ -1,0 +1,56 @@
+@mixin masked {
+	-webkit-mask-image: radial-gradient(
+		circle 5vh at center 412px,
+		transparent 0,
+		transparent 373px,
+		#1b1f2c 21px
+	);
+
+	mask-image: radial-gradient(
+		circle 1vh at center 403px,
+		transparent 0,
+		transparent 338px,
+		#1b1f2c 1vw
+	);
+	cursor: pointer;
+	font-weight: 300;
+	font-size: 1.2vw;
+	transition: 0.5s;
+	height: 5.4vw;
+	background: #2727705c;
+	border: none;
+	color: white;
+	line-height: 5vw;
+	width: 11vw;
+	display: inline-flex;
+	justify-content: center;
+	border-radius: 8vw 8vw 0vw 0vw;
+	box-shadow: inset 0 0 2vw black;
+	z-index: 1;
+}
+
+.user-Wrapper {
+	grid-area: 2/2/4/8;
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-around;
+	font-family: Major Mono Display;
+}
+
+.account-button {
+	transform: rotate(-44deg);
+	margin-left: 4vw;
+	@include masked();
+
+	&:hover {
+		box-shadow: inset 0 0 36px #0c99862e;
+	}
+}
+.backpack-button {
+	transform: rotate(44deg);
+	margin-right: 4vw;
+	@include masked();
+	&:hover {
+		box-shadow: inset 0 0 36px #0c99862e;
+	}
+}
