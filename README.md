@@ -2,7 +2,7 @@
 
 ### Aim
 
-Give people a better view of the night sky and a context to the universe around them.
+People have a better view of the night sky and a context to the universe around them.
 
 ### Features
 
